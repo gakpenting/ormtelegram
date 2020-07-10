@@ -1,0 +1,567 @@
+<style>
+  body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+.popo{
+  float:right;
+  margin:1.75em;
+}
+@import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+ 
+  margin: 0;
+  min-height: 100vh;
+  background: #fff;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+button.learn-more {
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 0.75em;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.75em, -1em);
+          transform: translate3d(0, 0.75em, -1em);
+  -webkit-transition: box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more:hover {
+  background: #ffe9e9;
+  -webkit-transform: translate(0, 0.25em);
+          transform: translate(0, 0.25em);
+}
+button.learn-more:hover::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.5em, -1em);
+          transform: translate3d(0, 0.5em, -1em);
+}
+button.learn-more:active {
+  background: #ffe9e9;
+  -webkit-transform: translate(0em, 0.75em);
+          transform: translate(0em, 0.75em);
+}
+button.learn-more:active::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0, -1em);
+          transform: translate3d(0, 0, -1em);
+}
+.action-button
+{
+	position: relative;
+	padding: 20px 20px;
+margin: 0px 10px 10px 0px;
+float: left;
+	border-radius: 8px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;	
+}
+
+.blue
+{
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+}
+
+.red
+{
+	background-color: #E74C3C;
+	border-bottom: 5px solid #BD3E31;
+	text-shadow: 0px -2px #BD3E31;
+}
+
+.green
+{
+	background-color: #82BF56;
+	border-bottom: 5px solid #669644;
+	text-shadow: 0px -2px #669644;
+}
+
+.yellow
+{
+	background-color: #F2CF66;
+	border-bottom: 5px solid #D1B358;
+	text-shadow: 0px -2px #D1B358;
+}
+
+.action-button:active
+{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+dialog {
+  background-color: white;
+  color: black;
+  text-align: center;
+  border: none;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.25);
+  max-width: 90vw;
+}
+
+dialog[open] {
+  animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+
+dialog::backdrop {
+  background: linear-gradient(45deg, rgba(0,143,104,.5), rgba(250,224,66,.5));
+}
+dialog + .backdrop {
+  background: linear-gradient(45deg, rgba(0,143,104,.5), rgba(250,224,66,.5));
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+dialog .actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="password"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="password"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+#contact button[type="button"].edit {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: green;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="button"].edit:hover {
+  background: green;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+#contact button[type="button"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: red;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="button"]:hover {
+  background: red;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+</style>
+
+
+<center><h1>Telegram Users</h1></center>
+<dialog class="my-modal2" >
+ <div class="container">  
+  <form id="contact" >
+<h4 id="apa">Edit Telegram User</h4>
+    <fieldset>
+      <input placeholder="Username" id="username" name="username" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Password"  id="password" name="password" type="password" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Telegram User"  id="telegramUser" name="telegramUser" type="text" tabindex="3" required>
+    </fieldset>
+   <input placeholder="Telegram User"  id="idUser" name="telegramUser" type="hidden" tabindex="3" required>
+    <fieldset>
+      <button name="submit" onclick="editUser()" type="button" class="edit" data-submit="...Sending">Edit</button>
+  </fieldset>
+   <fieldset>
+      <button name="Cancel" type="button" class="close-modal-btn" data-submit="...Sending">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+</dialog>
+<dialog class="my-modal" >
+ <div class="container">  
+  <form id="contact" action="/api/v1/adduser" method="post">
+<h4 >Add Telegram User</h4>
+    <fieldset>
+      <input placeholder="Username"  name="username" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Password"   name="password" type="password" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Telegram User"   name="telegramUser" type="text" tabindex="3" required>
+    </fieldset>
+   
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+  </fieldset>
+   <fieldset>
+      <button name="Cancel" type="button" class="close-modal-btn" data-submit="...Sending">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+</dialog>
+<button class="learn-more popo open-modal-btn">Add Telegram User</button>
+<table>
+  
+  
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      <th scope="col">Telegram Username</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+     {{#each users}}
+    <tr>
+      <td data-label="Account">{{this.username}}</td>
+      <td data-label="Due Date">(censored)</td>
+      <td data-label="Amount">{{this.telegramUser}}</td>
+      <td data-label="Period"> <a  class="action-button animate green" onclick="edit({{this.id}},'{{this.username}}','{{this.telegramUser}}')">EDIT</a><a  class="action-button animate red" onclick="deleteId({{this.id}},'{{this.username}}','{{this.password}}','{{this.telegramUser}}')">DELETE</a>
+  </td>
+    </tr>
+  {{/each}}
+    
+    
+  </tbody>
+</table>
+
+<script>
+  const trigger = document.querySelector('.open-modal-btn');
+const closeBtn = document.querySelector('.close-modal-btn');
+const closeBtn2 = document.querySelector('.close2-modal-btn');
+const modal = document.querySelector('.my-modal');
+const modal2 = document.querySelector('.my-modal2');
+trigger.addEventListener('click', () => {
+  modal.showModal();
+});
+closeBtn.addEventListener('click', () => {
+  modal.close();
+  modal2.close()
+});
+async function editUser(){
+let username1=document.getElementById("username");
+let telegramUser1=document.getElementById("telegramUser");
+let idUser1=document.getElementById("idUser");
+let password1=document.getElementById("password");
+let data={username:username1.value,telegramUser:telegramUser1.value,password:password1.value}
+if(confirm("anda yakin ingin mengedit?")){
+   const response = await fetch("/api/v1/updateuser/"+idUser1.value, {
+    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  if(response.redirected){
+    window.location.href=response.url
+  }
+
+}
+const modal = document.querySelector('.my-modal2');
+modal.close();  
+}
+async function edit(id,username,telegramUser){
+let username1=document.getElementById("username");
+let telegramUser1=document.getElementById("telegramUser");
+let idUser1=document.getElementById("idUser");
+username1.value=username;
+idUser1.value=id;
+telegramUser1.value=telegramUser;
+const modal = document.querySelector('.my-modal2');
+modal.showModal();
+}
+async function deleteId(id,username,password,telegramUser){
+  if(confirm("anda yakin mau delete?")){
+    let data={id,username,password,telegramUser}
+const response = await fetch("/api/v1/deleteuser/", {
+    method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data),
+     headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  });
+   if (response.redirected) {
+            window.location.href = response.url;
+        }
+  }
+
+  
+}
+</script>
