@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
+import { TelegramLib } from '../../lib/telegram';
+
 interface UserDto{
   username:string
   password:string
@@ -12,6 +14,7 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    private telegramLib:TelegramLib
   ) {}
 
   findAll(): Promise<User[]> {
@@ -38,5 +41,11 @@ export class UsersService {
     
     // const user = await this.usersRepository.create({id,username,password,telegramUser});
         await this.usersRepository.save(user);
+  }
+  async sendMessageToUser(message:string){
+    const res = await this.findAll();
+      res.forEach(a=>{
+        this.telegramLib.sendMessage(a.telegramUser,message )
+      })
   }
 }

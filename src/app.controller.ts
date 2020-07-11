@@ -1,5 +1,6 @@
-import { Get, Controller, Render } from '@nestjs/common';
+import { Get, Controller, Render} from '@nestjs/common';
 import { UsersService } from './module/users/users.service';
+
 @Controller()
 export class AppController {
   constructor(private usersService:UsersService){}
@@ -9,4 +10,5 @@ export class AppController {
     const users=await this.usersService.findAll();
     return { users };
   }
+  
 }
