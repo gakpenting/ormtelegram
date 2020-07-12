@@ -1,7 +1,6 @@
 import { EventSubscriber,EntitySubscriberInterface,InsertEvent,UpdateEvent,RemoveEvent,Connection } from 'typeorm';
 import { InjectConnection } from '@nestjs/typeorm';
 import {User} from './user.entity'
-import {TelegramLib} from '../../lib/telegram'
 import {UsersService} from './users.service'
 
 
@@ -9,7 +8,7 @@ import {UsersService} from './users.service'
 
 @EventSubscriber()
 export class UsersSubscriber implements EntitySubscriberInterface<User> {
-constructor(@InjectConnection() readonly connection: Connection,private telegramLib:TelegramLib,private usersService:UsersService){
+constructor(@InjectConnection() readonly connection: Connection,private usersService:UsersService){
   connection.subscribers.push(this);
   
 }
