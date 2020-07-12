@@ -6,6 +6,10 @@
 
 - buka browser dan ketik **http://localhost:3000**
 
+- buat file .env dengan isi TELEGRAM_TOKEN
+
+![](https://imgur.com/download/7iJV0e6)
+
 - follow bot telegram berikut https://t.me/ormtelegram_bot anda akan mendapat id dan username simpan teks tersebut untuk digunakan nanti
 
 - klik button **add telegram user** di pojok kanan layar, tambahkan username yang anda dapatkan dari bot, password boleh diisi atau tidak, lalu pada form telegramUser isikan id yang anda dapatkan dari bot
