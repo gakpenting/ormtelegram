@@ -1,23 +1,26 @@
 import { Injectable,OnModuleInit } from '@nestjs/common';
-
-
-import { TelegramLib } from '../../lib/telegram';
+import {ConfigService} from "@nestjs/config"
+import { Telegraf } from 'telegraf'
 
 
 @Injectable()
 export class TelegramService implements OnModuleInit{
-  constructor(
-     private telegramLib:TelegramLib
-  ) {}
-
+  constructor(private configService: ConfigService) {}
+  private token=this.configService.get<string>('TELEGRAM_TOKEN');;
+  public bot = new Telegraf(this.token)
+  
+  sendMessage(chatId:string|number,message:string):void{
+      this.bot.telegram.sendMessage(chatId,message)
+  }    
+  
   onModuleInit() {
     console.log(`Initialization... telegram`);
    
-    this.telegramLib.bot.on('text', (ctx) => {
+    this.bot.on('text', (ctx) => {
       console.log(ctx.update.message.from.id)
           ctx.reply("id "+ctx.update.message.from.id+" username "+ctx.update.message.from.username)
     })
-    this.telegramLib.bot.launch()
+    this.bot.launch()
   }
   
 }

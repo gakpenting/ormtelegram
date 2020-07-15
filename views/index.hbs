@@ -457,7 +457,7 @@ fieldset {
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
   </fieldset>
    <fieldset>
-      <button name="Cancel" type="button" class="close-modal-btn" data-submit="...Sending">Cancel</button>
+      <button name="Cancel" type="button" class="close2-modal-btn" data-submit="...Sending">Cancel</button>
     </fieldset>
   </form>
 </div>
@@ -503,13 +503,17 @@ closeBtn.addEventListener('click', () => {
   modal.close();
   modal2.close()
 });
+closeBtn2.addEventListener('click', () => {
+  modal.close();
+  modal2.close()
+});
 async function editUser(){
 let username1=document.getElementById("username");
 let telegramUser1=document.getElementById("telegramUser");
 let idUser1=document.getElementById("idUser");
 let password1=document.getElementById("password");
 let data={username:username1.value,telegramUser:telegramUser1.value,password:password1.value}
-if(confirm("anda yakin ingin mengedit?")){
+if(confirm("are you sure you want to edit?")){
    const response = await fetch("/api/v1/updateuser/"+idUser1.value, {
     method: 'PUT', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
@@ -542,7 +546,7 @@ const modal = document.querySelector('.my-modal2');
 modal.showModal();
 }
 async function deleteId(id,username,password,telegramUser){
-  if(confirm("anda yakin mau delete?")){
+  if(confirm("are you sure you want to delete?")){
     let data={id,username,password,telegramUser}
 const response = await fetch("/api/v1/deleteuser/", {
     method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
