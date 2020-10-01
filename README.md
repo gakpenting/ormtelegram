@@ -15,3 +15,4 @@
 - klik button **add telegram user** di pojok kanan layar, tambahkan username yang anda dapatkan dari bot, password boleh diisi atau tidak, lalu pada form telegramUser isikan id yang anda dapatkan dari bot
 
 - klik simpan maka update dari simpanan anda tadi akan masuk ke telegram bot @ormtelegram_bot
+
